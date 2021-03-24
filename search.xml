@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>20200529</title>
+    <url>/2020/05/29/20200529/</url>
+    <content><![CDATA[<p>#这是我的第一个博客</p>
+<p>太棒了！！！</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>20200814-file1</title>
+    <url>/2020/08/14/20200814-file1/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>easyexcel导出excel</title>
+    <url>/2021/03/24/easyexcel/</url>
+    <content><![CDATA[<p>EasyExcel通过注解的方式处理导出excel,比较常用的注解@ExcelProperty代表某一列</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@ApiModelProperty(&quot;业务编号&quot;)</span><br><span class="line">@ExcelProperty(index &#x3D; 0,value &#x3D; &quot;业务编号&quot;)</span><br><span class="line">private String orderNo;</span><br></pre></td></tr></table></figure>
+
+<p>index代表列的排序，从0开始。value代表列名称</p>
+<p>当你的vo类中存在多余的字段，则可以使用@ExcelIgnore注解来去掉某一列。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@ApiModelProperty(&quot;业务类型&quot;)</span><br><span class="line">@ExcelIgnore</span><br><span class="line">private Integer orderType;</span><br></pre></td></tr></table></figure>
+
+<p>案例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;vo数据获取</span><br><span class="line">List&lt;OperationWarnVo&gt; dataList &#x3D; operationWarnFeign.listOperationWarn(searchVo).getData();</span><br><span class="line">String fileName &#x3D; new String(&quot;通关时效管控&quot;.getBytes(&quot;utf-8&quot;),&quot;ISO-8859-1&quot;);</span><br><span class="line">&#x2F;&#x2F;添加响应头信息</span><br><span class="line">response.setHeader(&quot;Content-disposition&quot;, &quot;attachment; filename&#x3D;&quot; +URLEncoder.encode(fileName + &quot;.xlsx&quot;, &quot;UTF-8&quot;));</span><br><span class="line">response.setContentType(&quot;application&#x2F;msexcel;charset&#x3D;UTF-8&quot;);&#x2F;&#x2F;设置类型</span><br><span class="line">response.setHeader(&quot;Pragma&quot;, &quot;No-cache&quot;);&#x2F;&#x2F;设置头</span><br><span class="line">response.setHeader(&quot;Cache-Control&quot;, &quot;no-cache&quot;);&#x2F;&#x2F;设置头</span><br><span class="line">response.setDateHeader(&quot;Expires&quot;, 0);&#x2F;&#x2F;设置日期头</span><br><span class="line">ServletOutputStream out &#x3D; response.getOutputStream();</span><br><span class="line">&#x2F;&#x2F;excel导出处理</span><br><span class="line">EasyExcelFactory.write(out,OperationWarnVo.class).registerWriteHandler(new EasyExcelCustomLongestMatchColumnWidthStyleStrategy()).sheet(&quot;通关时效管控&quot;).doWrite(dataList);</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>java,easyexcel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/05/29/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>注解@Value取值取不到问题</title>
+    <url>/2020/06/08/file-1/</url>
+    <content><![CDATA[<h1 id="注解-Value取值取不到问题"><a href="#注解-Value取值取不到问题" class="headerlink" title="注解@Value取值取不到问题"></a>注解@Value取值取不到问题</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnalysisKuKaBaoWenUtil</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;kk_ftp_service&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String kk_ftp_service;</span><br></pre></td></tr></table></figure>
+
+<p>需求：原先采用PropertyUtil.getProperty()方式读取xx.properties配置文件来获取kk_ftp_service相关值。但这种方式有个缺陷，每次项目打包上线，其他环境的配置会覆盖线上的配置。索性修改为走config配置文件的方案。</p>
+<p>问题描述：在controller层，service层使用@value(“${kk_ftp_service}”)可以很顺利读取到，但是在工具类或是实体类中使用却读不到该值，一直显示为null。</p>
+<p>解决方案：</p>
+<p>1,使用@Value注解，必须把使用类加入spring的容器管理，即在类上加上@Controller @Service @Component 等容器注解。如下图显示，选择哪一种可以看分类。项目里是工具类一般实体类，选@Component就行。</p>
+<p><img src="/2020/06/08/file-1/index/java-20200608-file1.jpg" alt="示例"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnalysisKuKaBaoWenUtil</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;kk_ftp_service&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String kk_ftp_service;</span><br></pre></td></tr></table></figure>
+
+<p>2,使用@Value的类在调用的时候，不能直接通过new操作符进行调用，需要使用@Autowired进行注入。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> AnalysisKuKaBaoWenUtil analysisKuKaBaoWenUtil;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里注释掉</span></span><br><span class="line"><span class="comment">//AnalysisKuKaBaoWenUtil analysisKuKaBaoWenUtil = new AnalysisKuKaBaoWenUtil();</span></span><br><span class="line">analysisKuKaBaoWenUtil.sendKukaBaoWen();</span><br></pre></td></tr></table></figure>
+
+<p>上面修改完后就能取到值了。</p>
+]]></content>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>eclipse工具git pull分支代码lock fail</title>
+    <url>/2020/06/11/file2/</url>
+    <content><![CDATA[<h1 id="eclipse工具git-pull分支代码lock-fail"><a href="#eclipse工具git-pull分支代码lock-fail" class="headerlink" title="eclipse工具git pull分支代码lock fail"></a>eclipse工具git pull分支代码lock fail</h1><p>问题描述：在开发的过程中，我们常常会使用到git，svn等代码管理器，eclipse中集成git，在git pull时发生拉取不到最新的代码，而且代码显示如下图的问题。</p>
+<p><img src="/2020/06/11/file2/index/lockFail.jpg" alt="示例"></p>
+<p>问题原因：这个时候需要去git远程去检查一下我们的分支命名是否存在重复。注意分支号大小写的问题。git里面分支号是不区分大小写的。例如：X-CDSI-110，x-CDSI-110</p>
+<p>解决方案：任意删除一个重复的分支号。</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+</search>
