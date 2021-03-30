@@ -82,6 +82,81 @@
     
     
     
+    <article id="post-20210330" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/03/30/20210330/"
+    >关于复杂SQL中用到@SqlParser注解来解析</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2021/03/30/20210330/" class="article-date">
+  <time datetime="2021-03-30T03:23:53.000Z" itemprop="datePublished">2021-03-30</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>项目中对于一些复杂业务场景，例如拉取一些绩效数据，按某一特定数据进行排序，需要用到mysql中复杂的函数或者sql的拼接。常用的#{}和${}</p>
+<p>为了解决这些复杂的SQL，实现业务一次SQL搞定，则需要引用下面的maven包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;com.github.jsqlparser&lt;&#x2F;groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;jsqlparser&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;version&gt;3.2&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>经过实测，这里最好采用3.2版本以上的jar，因为之前版本支持度不友好，也踩过坑。</p>
+<p>添加好相关maven包之后，还需用到一个很重要的注解@SqlParser(filter = true)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@SqlParser(filter &#x3D; true)</span><br><span class="line">List&lt;OperationWarnVo&gt; listOperationWarnPage(</span><br><span class="line">	@Param(&quot;searchVo&quot; OperationWarnSearchVo searchVo);</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-mysql/" rel="tag">java,mysql</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-easyexcel" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 

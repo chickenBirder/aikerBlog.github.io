@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-03-24T10:23:12.625Z</updated>
+  <updated>2021-03-30T06:27:17.332Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于复杂SQL中用到@SqlParser注解来解析</title>
+    <link href="http://yoursite.com/2021/03/30/20210330/"/>
+    <id>http://yoursite.com/2021/03/30/20210330/</id>
+    <published>2021-03-30T03:23:53.000Z</published>
+    <updated>2021-03-30T06:27:17.332Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;项目中对于一些复杂业务场景，例如拉取一些绩效数据，按某一特定数据进行排序，需要用到mysql中复杂的函数或者sql的拼接。常用的#{}和${}&lt;/p&gt;
+&lt;p&gt;为了解决这些复杂的SQL，实现业务一次SQL搞定，则需要引用下面的maven包：&lt;/p&gt;
+&lt;figure
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="java,mysql" scheme="http://yoursite.com/tags/java-mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>easyexcel导出excel</title>
